@@ -19,3 +19,7 @@ npm-debug.log*
 **/build/
 **/node_modules/
 
+
+powershell.cmd
+**/powershell.cmd
+
