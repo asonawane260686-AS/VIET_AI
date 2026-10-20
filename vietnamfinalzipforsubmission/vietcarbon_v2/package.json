@@ -1,0 +1,13 @@
+{
+  "name": "vietcarbon-ai",
+  "version": "1.0.0",
+  "description": "VietCarbon AI \u2014 Vietnam Smart Sustainability Platform",
+  "scripts": {
+    "install:all": "cd frontend && npm install && cd ../backend && npm install",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "seed": "cd backend && node seed.js",
+    "build": "cd frontend && npm run build",
+    "dev:edge": "cd frontend && npm run dev"
+  }
+}

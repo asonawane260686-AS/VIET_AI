@@ -1,0 +1,8 @@
+Final requested fixes applied:
+- All visible 2025 labels in traffic/fuel/crowded sections changed to 2026 LIVE.
+- Top crowded area list now uses live 2026 generated data, not static 2025 list.
+- Manual data value field unit layout fixed so AQI/unit text no longer overlaps outside the input.
+- Removed the small side-card emission trend + renewable growth chart and replaced it with compact 2026 live metrics.
+- Citizen login and citizen portal mobile input now shows fixed Vietnam +84 prefix.
+- Map popup CO2 trend now includes a live 2026 bar and label changed to 2021-2026 LIVE.
+- Build tested successfully with npm run build.

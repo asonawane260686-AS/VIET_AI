@@ -1,0 +1,12 @@
+Microsoft Edge auto-open has been added.
+
+Run frontend with:
+  cd frontend
+  npm run dev
+
+The dev script now starts Vite and automatically opens:
+  http://localhost:3000
+in Microsoft Edge.
+
+If Edge does not open, open Microsoft Edge manually and go to:
+  http://localhost:3000

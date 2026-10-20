@@ -1,0 +1,21 @@
+# Environment secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+# Dependencies
+node_modules/
+# Build outputs
+dist/
+build/
+# Logs
+*.log
+npm-debug.log*
+# Editor files
+.vscode/
+
+# Generated frontend build
+**/dist/
+**/build/
+**/node_modules/
+
