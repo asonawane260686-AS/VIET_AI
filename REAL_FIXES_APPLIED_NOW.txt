@@ -1,0 +1,8 @@
+Applied fixes in this build:
+1. Citizen signup now asks only name, mobile, email, password and OTP. City/family/vehicle/electricity fields removed from signup.
+2. Citizen profile data is created/updated only from Citizen Dashboard Edit Profile and then appears live in Admin Citizen Data.
+3. Fixed signup password validation by preserving the password through OTP verification and creating a citizen user with password.
+4. Traffic Intelligence AI Deep Analysis no longer calls a blocked browser Anthropic endpoint and no longer falls back to same hardcoded text. It builds a city/hotspot/speed/efficiency/public-transport-specific analysis using live TomTom/backend hotspot data.
+5. AQI & Pollution 2026 CO unit fixed: Open-Meteo carbon monoxide is converted from µg/m³ to approximate ppm before display.
+6. HydroGrid container height fixed to prevent blank screen inside Admin Dashboard.
+7. Kept previous UI/theme/features intact.

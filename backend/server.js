@@ -1,13 +1,14 @@
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
 const app = express();
 
-// Middleware
+// Middleware — enable all dev origins (localhost, 127.0.0.1, LAN IP)
 app.use(cors({
-  origin: [process.env.FRONTEND_URL || 'http://localhost:3000', 'http://localhost:5173'],
+  origin: true,
   credentials: true,
 }));
 app.use(express.json({ limit: '10mb' }));

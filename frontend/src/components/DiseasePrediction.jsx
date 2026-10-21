@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import api from '../utils/api';
 import { resolveCityAlgorithm, CITY_ALGORITHMS } from '../utils/cityAlgorithms';
+import SyllabusAlgorithmTrainingPanel from './SyllabusAlgorithmTrainingPanel';
 import {
   Activity, HeartPulse, AlertTriangle, ShieldAlert, FileText, Download,
   RefreshCw, Filter, Calendar, MapPin, Thermometer, Droplets, Wind,
@@ -424,6 +425,18 @@ End of VietCarbon AI Disease Intelligence Report
           </div>
         </div>
       </div>
+
+      {/* ── SYLLABUS ALGORITHM MODEL TRAINING & SELECTION ENGINE (PR1 - PR11) ── */}
+      <SyllabusAlgorithmTrainingPanel
+        currentCity={selectedCity}
+        currentInputs={{
+          customTemp,
+          customHumidity,
+          customRainfall,
+          customAqi,
+          customFloodRisk
+        }}
+      />
 
       {/* ── INTERACTIVE PREDICTION CONFIGURATION WORKFLOW ── */}
       <div className="p-5 rounded-2xl space-y-4"

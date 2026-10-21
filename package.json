@@ -7,6 +7,7 @@
     "dev:frontend": "cd frontend && npm run dev",
     "dev:backend": "cd backend && npm run dev",
     "seed": "cd backend && node seed.js",
+    "train:ai": "run_train.cmd",
     "build": "cd frontend && npm run build",
     "dev:edge": "cd frontend && npm run dev"
   }

@@ -13,10 +13,16 @@ if (token) {
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      window.location.href = '/';
+    const url = error.config?.url || '';
+    const isAuthRoute = url.includes('/auth/');
+    // Do NOT wipe or redirect during login, auth flows, or demo tokens
+    if (error.response?.status === 401 && !isAuthRoute) {
+      const activeToken = localStorage.getItem('token');
+      if (activeToken && !activeToken.startsWith('demo-') && !activeToken.startsWith('admin-')) {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        window.location.href = '/';
+      }
     }
     return Promise.reject(error);
   }

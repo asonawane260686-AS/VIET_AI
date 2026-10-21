@@ -46,7 +46,7 @@ router.post('/login', async (req, res) => {
     if (!user) return res.status(401).json({ error: 'Invalid credentials' });
     const valid = await user.comparePassword(password);
     if (!valid) return res.status(401).json({ error: 'Invalid credentials' });
-    if (user.role !== 'manager' && user.role !== 'admin') return res.status(403).json({ error: 'Use citizen email OTP login for citizen accounts.' });
+    if (user.role === 'citizen') return res.status(403).json({ error: 'Use citizen email OTP login for citizen accounts.' });
     res.json(signUser(user));
   } catch (err) { res.status(500).json({ error: err.message }); }
 });

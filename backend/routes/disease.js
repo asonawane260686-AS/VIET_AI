@@ -1054,7 +1054,102 @@ function calculateDiseasePrediction({ category, diseaseId, city, horizon = 30, i
 
 // ── ENDPOINTS ──
 
-// 0. GET City Algorithm & Pseudocode on demand
+// 0. GET Syllabus Algorithms (PR1 - PR11) with Exact Names & Purposes
+router.get('/syllabus-algorithms', (req, res) => {
+  const SYLLABUS_ALGORITHMS_BACKEND = {
+    'pr1_simple_reflex': {
+      id: 'pr1_simple_reflex', practical: 'PR1', name: 'Simple Reflex Agent & PEAS Representation',
+      category: 'Intelligent Agents', purpose: 'Use an intelligent agent to select actions based on the environment, available information and defined performance measures.'
+    },
+    'pr2_bfs': {
+      id: 'pr2_bfs', practical: 'PR2', name: 'Breadth-First Search (BFS)',
+      category: 'Uninformed Search', purpose: 'Use BFS for suitable graph-based decision or route-search tasks.'
+    },
+    'pr2_dfs': {
+      id: 'pr2_dfs', practical: 'PR2', name: 'Depth-First Search (DFS)',
+      category: 'Uninformed Search', purpose: 'Use DFS for suitable graph-based decision or route-search tasks.'
+    },
+    'pr3_greedy_bfs': {
+      id: 'pr3_greedy_bfs', practical: 'PR3', name: 'Greedy Best-First Search',
+      category: 'Informed Search', purpose: 'Use Greedy Best First Search for suitable graph-based decision or route-search tasks.'
+    },
+    'pr3_a_star': {
+      id: 'pr3_a_star', practical: 'PR3', name: 'A* Search Algorithm',
+      category: 'Informed Search', purpose: 'Use A* for suitable graph-based decision or route-search tasks.'
+    },
+    'pr4_rule_expert': {
+      id: 'pr4_rule_expert', practical: 'PR4', name: 'Rule-Based Expert System (Logical Implication)',
+      category: 'Knowledge Representation', purpose: 'Use rule-based reasoning for explainable decisions.'
+    },
+    'pr4_forward_chaining': {
+      id: 'pr4_forward_chaining', practical: 'PR4', name: 'Forward Chaining Inference',
+      category: 'Knowledge Representation', purpose: 'Use Forward Chaining for explainable decisions.'
+    },
+    'pr4_backward_chaining': {
+      id: 'pr4_backward_chaining', practical: 'PR4', name: 'Backward Chaining Inference',
+      category: 'Knowledge Representation', purpose: 'Use Backward Chaining for explainable decisions.'
+    },
+    'pr5_linear_regression': {
+      id: 'pr5_linear_regression', practical: 'PR5', name: 'Linear Regression (Ordinary Least Squares)',
+      category: 'Regression', purpose: 'Use regression algorithms to predict numerical outcomes.'
+    },
+    'pr5_poly_regression': {
+      id: 'pr5_poly_regression', practical: 'PR5', name: 'Polynomial Regression (Degree = 2)',
+      category: 'Regression', purpose: 'Use regression algorithms to predict numerical outcomes.'
+    },
+    'pr6_logistic_regression': {
+      id: 'pr6_logistic_regression', practical: 'PR6', name: 'Logistic Regression (Binary Decision)',
+      category: 'Classification', purpose: 'Use classification algorithms to predict categories and decisions.'
+    },
+    'pr6_knn': {
+      id: 'pr6_knn', practical: 'PR6', name: 'K-Nearest Neighbors (KNN)',
+      category: 'Classification', purpose: 'Use classification algorithms to predict categories and decisions.'
+    },
+    'pr7_decision_tree': {
+      id: 'pr7_decision_tree', practical: 'PR7', name: 'Decision Tree Classifier (CART / Gini)',
+      category: 'Classification', purpose: 'Use classification algorithms to predict categories and decisions.'
+    },
+    'pr7_naive_bayes': {
+      id: 'pr7_naive_bayes', practical: 'PR7', name: 'Gaussian Naive Bayes Classifier',
+      category: 'Classification', purpose: 'Use classification algorithms to predict categories and decisions.'
+    },
+    'pr8_kmeans': {
+      id: 'pr8_kmeans', practical: 'PR8', name: 'K-Means Clustering (Elbow Method)',
+      category: 'Clustering', purpose: 'Use clustering algorithms to discover patterns and group similar records.'
+    },
+    'pr8_hierarchical': {
+      id: 'pr8_hierarchical', practical: 'PR8', name: 'Agglomerative Hierarchical Clustering',
+      category: 'Clustering', purpose: 'Use clustering algorithms to discover patterns and group similar records.'
+    },
+    'pr9_pca': {
+      id: 'pr9_pca', practical: 'PR9', name: 'Principal Component Analysis (PCA)',
+      category: 'Dimensionality Reduction', purpose: 'Use PCA to reduce feature dimensions where appropriate.'
+    },
+    'pr10_svm': {
+      id: 'pr10_svm', practical: 'PR10', name: 'Support Vector Machine (SVM with RBF Kernel)',
+      category: 'Advanced Classification', purpose: 'Use classification algorithms to predict categories and decisions.'
+    },
+    'pr10_random_forest': {
+      id: 'pr10_random_forest', practical: 'PR10', name: 'Random Forest Classifier',
+      category: 'Advanced Classification', purpose: 'Use classification algorithms to predict categories and decisions.'
+    },
+    'pr10_adaboost': {
+      id: 'pr10_adaboost', practical: 'PR10', name: 'AdaBoost Classifier (Adaptive Boosting)',
+      category: 'Advanced Classification', purpose: 'Use classification algorithms to predict categories and decisions.'
+    },
+    'pr11_cross_validation': {
+      id: 'pr11_cross_validation', practical: 'PR11', name: 'K-Fold Cross-Validation (K = 5)',
+      category: 'Model Optimization', purpose: 'Use cross-validation to optimize the supported machine learning models.'
+    },
+    'pr11_grid_search': {
+      id: 'pr11_grid_search', practical: 'PR11', name: 'Grid Search Hyperparameter Tuning',
+      category: 'Model Optimization', purpose: 'Use Grid Search to optimize the supported machine learning models.'
+    }
+  };
+  res.json({ success: true, count: Object.keys(SYLLABUS_ALGORITHMS_BACKEND).length, algorithms: SYLLABUS_ALGORITHMS_BACKEND });
+});
+
+// 0b. GET City Algorithm & Pseudocode on demand
 router.get('/city-algorithm', auth, (req, res) => {
   const { city = 'Ho Chi Minh City', category = 'human', diseaseId = 'dengue' } = req.query;
   const details = getCityAlgorithmDetails(city, category, diseaseId);

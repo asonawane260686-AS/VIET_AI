@@ -133,7 +133,25 @@ export default function LoginPage() {
               <button disabled={loading} className="w-full py-3.5 rounded-xl flex items-center justify-center gap-2 font-orbitron text-sm font-bold" style={{background:'#00ff88',color:'#030d07'}}>{loading?<><Loader size={16} className="animate-spin"/> Please wait...</>:otpSent?<><KeyRound size={16}/> VERIFY OTP</>:citizenMode==='login'?'LOGIN AS CITIZEN':<><Mail size={16}/> SEND EMAIL OTP</>}</button>
             </form>
           )}
-          <div className="mt-6 pt-4 text-center text-xs font-mono" style={{borderTop:'1px solid #0d2e14',color:'#4caf50'}}>Admin demo: <span style={{color:'#00ff88'}}>admin</span> / <span style={{color:'#00ff88'}}>admin123</span></div>
+          <div className="mt-6 pt-4 text-center text-xs font-mono" style={{borderTop:'1px solid #0d2e14',color:'#81c784'}}>
+            <div className="mb-2 text-[11px] text-[#4caf50]">Click to autofill verified command credentials:</div>
+            <div className="flex items-center justify-center gap-2 flex-wrap">
+              <button
+                type="button"
+                onClick={() => { setUsername('manager'); setPassword('manager123'); setError(''); }}
+                className="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-[#00ff8822] text-[#00ff88] border border-[#00ff8855] hover:bg-[#00ff8833] transition-all"
+              >
+                manager / manager123
+              </button>
+              <button
+                type="button"
+                onClick={() => { setUsername('admin'); setPassword('admin123'); setError(''); }}
+                className="px-2.5 py-1 rounded-lg text-xs font-mono font-bold bg-[#00e5ff22] text-[#00e5ff] border border-[#00e5ff55] hover:bg-[#00e5ff33] transition-all"
+              >
+                admin / admin123
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
